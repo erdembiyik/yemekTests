@@ -1,0 +1,2157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-04-21 17:54:07</p>
+<p class='attribute'><strong>Duration:</strong> 0:08:37.697497</p>
+<p class='attribute'><strong>Status:</strong> Pass 47 Failure 1 Error 3</p>
+
+<p class='description'>Result of tests</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>TestScenarios.LogInTests</td>
+    <td>9</td>
+    <td>8</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',9)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_close_login_popup</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Login pop up kapatÄ±ldÄ±
+GiriÅ yap pop up'Ä± kapatÄ±ldÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_empty_mail_forgot_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Sifremi unuttum butonuna basÄ±ldÄ±
+mail bos bÄ±rakÄ±ldÄ±
+Sifremi unuttum islemi beklenildigi gibi basarisiz
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_forgot_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Sifremi unuttum butonuna basÄ±ldÄ±
+YanlÄ±s mail girildi
+Sifremi unuttum islemi beklenildigi gibi basarisiz
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+YanlÄ±s mail girildi
+YanlÄ±s sifre girildi girildi
+Login beklenildigi gibi basarisiz
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_max_char_email_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+ 100 karakterden fazla girildi girildi
+sifre girildi
+Email Maksimum karakter uyarÄ±sÄ± verildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_max_char_password_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Email girildi
+100 karakterden fazla girildi girildi
+Sifre Maksimum karakter uyarÄ±sÄ± verildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_valid_facebook_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        error</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Facebook butonuna basÄ±ldÄ±
+Traceback (most recent call last):
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/TestScenarios.py", line 44, in test_valid_facebook_login
+    login.valid_facebook_login(self.testrunner.driver)
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/Features/Login.py", line 71, in valid_facebook_login
+    testrunner.find_element_by_id("email").clear()
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 234, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 712, in find_element
+    {'using': by, 'value': value})['value']
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 201, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"id","selector":"email"}
+  (Session info: chrome=49.0.2623.112)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Mac OS X 10.11.4 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_valid_forgot_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Sifremi unuttum butonuna basÄ±ldÄ±
+Dogru mail girildi
+Sifremi unuttum islemi beklenildigi gibi basarili
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_valid_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: Login testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>TestScenarios.RegisterTests</td>
+    <td>14</td>
+    <td>14</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',14)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_close_register_popup</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Pop Up kapatÄ±ldÄ±
+Ãye ol pop up'Ä± kapatÄ±ldÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_go_login_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+GiriÅ sayfasÄ±na tÄ±klanÄ±ldÄ±
+Login sayfasÄ±na gidildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_empty_email</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_empty_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_empty_username</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_inappropriate_email</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        pass</a>
+
+    <div id='div_pt2.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.6: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_max_charachter_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
+        pass</a>
+
+    <div id='div_pt2.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.7: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_max_charachter_username</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
+        pass</a>
+
+    <div id='div_pt2.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.8: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_min_charachter_password</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.9')" >
+        pass</a>
+
+    <div id='div_pt2.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.9: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_min_charachter_username</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.10')" >
+        pass</a>
+
+    <div id='div_pt2.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.10: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_used_email</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.11')" >
+        pass</a>
+
+    <div id='div_pt2.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.11: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_used_username</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.12')" >
+        pass</a>
+
+    <div id='div_pt2.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.12: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_register_without_agreement</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.13')" >
+        pass</a>
+
+    <div id='div_pt2.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.13: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register hata mesajÄ± istenildigi gibi geldi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_valid_register</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.14')" >
+        pass</a>
+
+    <div id='div_pt2.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.14: Register testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+Register baslamak uzere
+Uye ol tÄ±klanÄ±ldÄ±
+Register istenildigi gibi basarili
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>TestScenarios.LogOutTests</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_logout</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: Logout testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Logout butonuna basÄ±ldÄ±
+Logout istenildigi gibi basarili
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>TestScenarios.SettingsTests</td>
+    <td>19</td>
+    <td>17</td>
+    <td>1</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c4',19)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_change_password_invalid_credentials</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Sifre hata mesajÄ± alÄ±ndÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_change_password_invalid_max_characters</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        fail</a>
+
+    <div id='div_ft4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.2: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Traceback (most recent call last):
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/TestScenarios.py", line 418, in test_change_password_invalid_max_characters
+    setting.change_password_invalid_max_characters(self.testrunner.driver)
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/Features/Settings.py", line 366, in change_password_invalid_max_characters
+    assert error.text == 'Åifre 3 karekterden az, 18 karakterden fazla olamaz.'.decode('utf-8')
+AssertionError
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_change_password_invalid_min_characters</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
+        pass</a>
+
+    <div id='div_pt4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.3: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Sifre hata mesajÄ± alÄ±ndÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_change_password_valid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+        pass</a>
+
+    <div id='div_pt4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.4: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Sifre duzgun degÄ±strÄ±ldÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_check_change_password_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
+        pass</a>
+
+    <div id='div_pt4.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.5: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Sifre degistirme sayfasi duzgun
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_check_settings_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.6')" >
+        pass</a>
+
+    <div id='div_pt4.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.6: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasÄ±, sayfa kontrolleri tamam
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_choose_city</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.7')" >
+        pass</a>
+
+    <div id='div_pt4.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.7: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan Åehir seÃ§ildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_choose_gender</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.8')" >
+        pass</a>
+
+    <div id='div_pt4.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.8: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan cinsiyet seÃ§ildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_close_settings</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.9')" >
+        pass</a>
+
+    <div id='div_pt4.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.9: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasi kapatÄ±ldÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_get_email_checkbox</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.10')" >
+        pass</a>
+
+    <div id='div_pt4.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.10: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan yemek.com'dan eposta almak istiyorum seÃ§eneÄi seÃ§ildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_go_settings_change_name_invalid_max_req</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.11')" >
+        pass</a>
+
+    <div id='div_pt4.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.11: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan ad ve soyad max deÄerin Ã¼stÃ¼nde olduÄu iÃ§in degistirilemedi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_go_settings_change_name_invalid_min_req</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.12')" >
+        pass</a>
+
+    <div id='div_pt4.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.12: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan ad ve soyad min deÄerin altÄ±nda olduÄu iÃ§in degistirilemedi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_go_settings_change_name_valid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.13')" >
+        pass</a>
+
+    <div id='div_pt4.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.13: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan ad ve soyad degistirildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.14' class='none'>
+    <td class='errorCase'><div class='testcase'>test_invalid_birthday_date</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.14')" >
+        error</a>
+
+    <div id='div_ft4.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.14: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Traceback (most recent call last):
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/TestScenarios.py", line 337, in test_invalid_birthday_date
+    setting.invalid_birthday_date(self.testrunner.driver)
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/Features/Settings.py", line 180, in invalid_birthday_date
+    error = testrunner.find_element_by_class_name('error')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 378, in find_element_by_class_name
+    return self.find_element(by=By.CLASS_NAME, value=name)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 712, in find_element
+    {'using': by, 'value': value})['value']
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 201, in execute
+    self.error_handler.check_response(response)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/remote/errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"class name","selector":"error"}
+  (Session info: chrome=49.0.2623.112)
+  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Mac OS X 10.11.4 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_invalid_birthday_range</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.15')" >
+        pass</a>
+
+    <div id='div_pt4.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.15: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan hatlÄ± doÄum gÃ¼nÃ¼ uyarÄ±sÄ± gÃ¶rÃ¼ndÃ¼
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_social_links_max_character_limit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.16')" >
+        pass</a>
+
+    <div id='div_pt4.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.16: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Sosyal aÄ linklerine fazla karakter girildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_update_job_invalid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.17')" >
+        pass</a>
+
+    <div id='div_pt4.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.17: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan meslek alanÄ± hata mesajÄ± dÃ¼zgÃ¼n alÄ±ndÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_update_job_valid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.18')" >
+        pass</a>
+
+    <div id='div_pt4.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.18: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan meslek alanÄ± hatasÄ±z deÄiÅtirildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_valid_birthday_change</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.19')" >
+        pass</a>
+
+    <div id='div_pt4.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.19: Ayarlar sayfasi testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Donut Ã¼zerine hover yapÄ±ldÄ±
+Ayarlar butonuna basÄ±ldÄ±
+Ayarlar sayfasindan doÄum gÃ¼nÃ¼ deÄiÅtirildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>TestScenarios.SearchTests</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',4)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_close_search_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Arama kutusu aÃ§Ä±ldÄ±
+Arama kapatÄ±ldÄ±
+Arama sayfasÄ± kapatildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+        pass</a>
+
+    <div id='div_pt5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.2: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Arama kutusu aÃ§Ä±ldÄ±
+Arama sayfasÄ± dogru geliyor
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_close_search_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+        pass</a>
+
+    <div id='div_pt5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.3: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Arama kutusu aÃ§Ä±ldÄ±
+Arama kapatÄ±ldÄ±
+Arama sayfasÄ± kapatildi
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+        pass</a>
+
+    <div id='div_pt5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.4: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+Arama kutusu aÃ§Ä±ldÄ±
+Arama sayfasÄ± dogru geliyor
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>TestScenarios.HomePageTests</td>
+    <td>4</td>
+    <td>3</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c6',4)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_check_home_page</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+Anasayfa baÅlÄ±klarÄ± doÄru geliyor
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_home_page_subscription_invalid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        pass</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.2: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+kayÄ±t iÅlemi hatalÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_home_page_subscription_valid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.3')" >
+        pass</a>
+
+    <div id='div_pt6.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.3: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+kayÄ±t iÅlemi baÅarÄ±lÄ±
+Temizleme islemi basladi
+Temizleme islemi bitti
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_open_menu_footer_links</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.4')" >
+        error</a>
+
+    <div id='div_ft6.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.4: Arama testleri basliyor
+Browser hazirlaniyor
+Sayfa yuklendi
+
+Giris yap butonuna basÄ±ldÄ±
+Dogru mail girildi
+Dogru sifre girildi
+Login istenildigi gibi basarili
+
+
+MenÃ¼ aÃ§Ä±ldÄ±
+Traceback (most recent call last):
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/TestScenarios.py", line 494, in test_open_menu_footer_links
+    home.home_menu_footer_links(self.testrunner.driver)
+  File "/Users/yigitcetin/PycharmProjects/Yemek.com/Features/HomePage.py", line 83, in home_menu_footer_links
+    element = wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@data-yto="menuYazarlar"]')))
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.52.0-py2.7.egg/selenium/webdriver/support/wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>51</td>
+    <td>47</td>
+    <td>1</td>
+    <td>3</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
